@@ -11,7 +11,7 @@ class Customer extends Model
     use HasFactory, Notifiable;
 
     protected $fillable = [
-        'NIC',
+        'nic',
         'name',
         'email',
         'password',
