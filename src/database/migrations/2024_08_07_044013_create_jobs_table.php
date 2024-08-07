@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('status');
             $table->foreignId('car_id')->nullable()->index();
             $table->foreignId('service_id')->nullable()->index();
-            $table->boolean('is_deleted');
+            $table->boolean('is_deleted')->default(0);
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('fuel_type');
             $table->string('transmission');
             $table->foreignId('customer_id')->nullable()->index();
-            $table->boolean('is_deleted');
+            $table->boolean('is_deleted')->default(0);
             $table->timestamps();
         });
     }

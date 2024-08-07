@@ -21,7 +21,6 @@ class Customer extends Component
     public $search;
     public $editingCustomerID;
 
-    protected $customerHandler;
     public $modalOpen = false;
 
     public function create(){
