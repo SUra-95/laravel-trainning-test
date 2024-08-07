@@ -15,6 +15,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
     Route::get('/customer', function () {
-        return view('customer');
+        return view('customer-list');
     })->name('customer');
 });
