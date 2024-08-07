@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Handler\CarHandler;
 use App\Models\Car as ModelsCar;
 use Illuminate\Support\Facades\Session;
+use Livewire\Attributes\Rule;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -17,8 +18,10 @@ class Car extends Component
     public $fuel_type;
     public $transmission;
     public $search;
-    public $editingCarID;
     public $isdeleted;
+    public $editingCarID;
+    #[Rule('required|min:5|max:50')]
+    public $editingCarName;
 
     public $modalOpen = false;
 
@@ -41,6 +44,24 @@ class Car extends Component
 
     public function delete($carId){
         CarHandler::deleteCar($carId);
+    }
+
+    public function edit($carId){
+        $this->editingCarID = $carId;
+        // dd($this->editingCarID);
+        // $this->editingCarName = '';
+        CarHandler::editCar($this->editingCarID, $this->editingCarName);
+    }
+
+    public function cancelEdit(){
+        $this->reset('editingCarID', 'editingCarName');
+    }
+
+    public function update(){
+        $this->validateOnly('editingCarName');
+    
+        carHandler::updatecar($this->editingcarID, $this->editingcarName);
+        $this->cancelEdit();
     }
 
 

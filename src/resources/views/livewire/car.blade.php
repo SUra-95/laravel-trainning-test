@@ -8,7 +8,7 @@
         @endforeach
 
         <div class="my-2">
-            {{-- {{ $cars->links() }} --}}
+            {{ $cars->links() }}
         </div>
     </div>
 </div>
