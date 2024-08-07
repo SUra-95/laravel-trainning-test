@@ -1,5 +1,5 @@
 <div wire:key="{{ $customer->id }}"
-    class="mb-5 card px-5 py-6 bg-white col-span-1 border-t-2 border-blue-500 hover:shadow">
+    class="mb-5 card px-5 py-6 bg-white col-span-1 border-t-2 border-blue-500 shadow-md">
     <div class="flex justify-between space-x-2">
 
         <div class="flex items-center">

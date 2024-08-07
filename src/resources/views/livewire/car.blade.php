@@ -3,9 +3,9 @@
     @include('livewire.includes.search-box')
     
     <div id="car-list">
-        {{-- @foreach ($cars as $car)
+        @foreach ($cars as $car)
             @include('livewire.includes.car-card')
-        @endforeach --}}
+        @endforeach
 
         <div class="my-2">
             {{-- {{ $cars->links() }} --}}

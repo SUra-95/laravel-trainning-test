@@ -39,6 +39,10 @@ class Car extends Component
         Session::flash('success', 'Saved.');
     }
 
+    public function delete($carId){
+        CarHandler::deleteCar($carId);
+    }
+
 
     public function render()
     {
@@ -47,6 +51,7 @@ class Car extends Component
             [
                 'cars' => ModelsCar::latest()
                     ->where('model', 'like', "%{$this->search}%")
+                    ->orWhere('registration_number', 'like', "%{$this->search}%")
                     ->paginate(2)
             ]
         );
