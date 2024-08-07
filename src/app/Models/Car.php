@@ -16,6 +16,5 @@ class Car extends Model
         'fuel_type',
         'transmission',
         'customer_id',
-        'is_deleted',
     ];
 }
