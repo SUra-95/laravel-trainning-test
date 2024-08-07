@@ -20,7 +20,7 @@ class Car extends Component
     public $search;
     public $isdeleted;
     public $editingCarID;
-    #[Rule('required|min:5|max:50')]
+    // #[Rule('required|min:5|max:50')]
     public $editingCarName;
 
     public $modalOpen = false;
@@ -58,9 +58,10 @@ class Car extends Component
     }
 
     public function update(){
-        $this->validateOnly('editingCarName');
-    
-        carHandler::updatecar($this->editingcarID, $this->editingcarName);
+        // dd('here');
+        // $this->validateOnly('editingCarName');
+        
+        CarHandler::updateCar($this->editingCarID, $this->editingCarName);
         $this->cancelEdit();
     }
 

@@ -4,10 +4,10 @@
         <div class="flex items-center">
             @if ($editingCarID === $car->id)
                 <div>
-                    <input wire:model="editingCustomerName" type="text" placeholder="Name..." value="{{ $car->model }}"
+                    <input wire:model="editingCarName" type="text" placeholder="{{ $car->model }}" value="{{ $car->model }}"
                         class="bg-gray-100  text-gray-900 text-sm rounded block w-full p-2.5">
 
-                    @error('editingCustomerName')
+                    @error('editingCarName')
                         <span class="text-red-500 text-xs block">{{ $message }}</span>
                     @enderror
                 </div>

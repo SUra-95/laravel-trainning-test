@@ -26,12 +26,15 @@ class CarHandler
         }
     }
 
-    public static function updateCar($id, $name)
+    public static function updateCar($id, $model)
     {
         $car = Car::find($id);
-        dd($car);
+        dd($model);
         if ($car) {
-            $car->name = $name;
+            $car->registration_number = '111111111';
+            $car->model = $model;
+            $car->fuel_type = 'petrol';
+            $car->transmission = 'auto';
             $car->save();
         }
     }
