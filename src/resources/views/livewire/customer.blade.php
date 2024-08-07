@@ -2,7 +2,7 @@
     @include('livewire.includes.create-customer-box')
     @include('livewire.includes.search-box')
     
-    <div id="todos-list">
+    <div id="customer-list">
         @foreach ($customers as $customer)
             @include('livewire.includes.customer-card')
         @endforeach

@@ -5,27 +5,6 @@
                 <h2 class="font-semibold text-lg text-gray-800 mb-5">Add new customer</h2>
             </div>
             <div>
-                {{-- <form>
-                    <div class="mb-6">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-black">*
-                            Todo </label>
-                        <input wire:model="name" type="text" id="name" placeholder="Todo.."
-                            class="bg-gray-100  text-gray-900 text-sm rounded block w-full p-2.5">
-
-                        @error('name')
-                            <span class="text-red-500 text-xs mt-3 block ">{{ $message }}</span>
-                        @enderror
-
-                    </div>
-                    <button wire:click.prevent="create" type="submit"
-                        class="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600">Create
-                        +</button>
-                    @if (session('success'))
-                        <span class="text-green-500 text-xs">{{ session('success') }}</span>
-                    @endif
-
-                </form> --}}
-
                 <!-- Modal -->
                 <div x-data="{ isOpen: false }">
 
@@ -64,7 +43,7 @@
                                                 class="block mb-2 mt-0 text-sm font-medium text-gray-900 dark:text-black">NIC</label>
                                             <input type="text" name="nic" id="nic" wire:model="nic"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                placeholder="Type Todo title">
+                                                placeholder="Type Customer NIC">
                                             @error('nic')
                                                 <p class="text-red-600">{{ $message }}</p>
                                             @enderror
@@ -72,7 +51,7 @@
                                                 class="block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-black">Name</label>
                                             <input type="text" name="name" id="name" wire:model="name"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                placeholder="Type Todo title">
+                                                placeholder="Type Customer name">
                                             @error('name')
                                                 <p class="text-red-600">{{ $message }}</p>
                                             @enderror
@@ -80,23 +59,15 @@
                                                 class="block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-black">Email</label>
                                             <input type="email" name="email" id="email" wire:model="email"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                placeholder="Type Todo title">
+                                                placeholder="Type Customer email">
                                             @error('email')
-                                                <p class="text-red-600">{{ $message }}</p>
-                                            @enderror
-                                            <label for="password"
-                                                class="block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-black">Password</label>
-                                            <input type="password" name="password" id="password" wire:model="password"
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                placeholder="Type Todo title">
-                                            @error('password')
                                                 <p class="text-red-600">{{ $message }}</p>
                                             @enderror
                                             <label for="phone"
                                                 class="block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-black">Phone</label>
                                             <input type="tel" name="phone" id="phone" wire:model="phone"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                placeholder="Type Todo title">
+                                                placeholder="Type Customer phone">
                                             @error('phone')
                                                 <p class="text-red-600">{{ $message }}</p>
                                             @enderror
@@ -104,15 +75,15 @@
                                                 class="block mb-2 mt-2 text-sm font-medium text-gray-900 dark:text-black">Address</label>
                                             <input type="text" name="address" id="address" wire:model="address"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-200 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                placeholder="Type Todo title">
+                                                placeholder="Type Customer address">
                                             @error('address')
                                                 <p class="text-red-600">{{ $message }}</p>
                                             @enderror
-                                            
+
 
                                         </div>
                                     </div>
-                                    <button  wire:click="create" type="submit"
+                                    <button wire:click="create" type="submit"
                                         class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                         <svg class="mr-1 -ml-1 w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
                                             xmlns="http://www.w3.org/2000/svg">

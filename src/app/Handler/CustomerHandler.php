@@ -21,5 +21,11 @@ class CustomerHandler
         // ]));
     }
 
+
+    public static function deleteCustomer($id)
+    {
+        Customer::find($id)->delete();
+    }
+
     
 }

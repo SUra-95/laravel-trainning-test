@@ -25,6 +25,7 @@ class Customer extends Component
     public $modalOpen = false;
 
     public function create(){
+        $this->password = $this->generateRandomPassword();
 
         $rules = [
             'nic' => 'required|min:10|max:15',
@@ -41,12 +42,22 @@ class Customer extends Component
         $this->reset('name', );
         Session::flash('success', 'Saved.');
     }
+    protected function generateRandomPassword($length = 8)
+    {
+        return bin2hex(random_bytes($length / 2));
+    }
+
+    public function delete($customerId){
+        CustomerHandler::deleteCustomer($customerId);
+    }
 
     public function render()
     {
         return view('livewire.customer', 
         [
-            'customers' => ModelsCustomer::latest()->where('email', 'like', "%{$this->search}%")->paginate(2)
+            'customers' => ModelsCustomer::latest()
+                ->where('email', 'like', "%{$this->search}%")
+                ->paginate(2)
         ]
         );
     }
