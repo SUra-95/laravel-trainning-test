@@ -7,14 +7,12 @@
             <div>
                 <!-- Modal -->
                 <div x-data="{ isOpen: false }">
-
                     <div>
                         <div x-show="isOpen"
                             class=" flex fixed inset-0 z-40 min-h-full overflow-y-auto overflow-x-hidden transition items-center justify-center">
                             <div aria-hidden="true" class="fixed inset-0 w-full h-full bg-black/80 cursor-pointer"
                                 @click="isOpen = false">
                             </div>
-
                             <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
                                 <!-- Modal content -->
                                 <div class="relative p-4 bg-gray-200 rounded-lg shadow dark:bg-gray-100 sm:p-5">
@@ -90,7 +88,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <div class="flex justify-center items-center">
                         <button {{-- wire:click="isOpen= true"  --}} x-on:click="isOpen = true"

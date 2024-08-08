@@ -18,11 +18,11 @@ class CarHandler
         car::find($id)->delete();
     }
 
-    public static function editCar($id, &$name)
+    public static function editCar($id)
     {
         $car = Car::find($id);
         if ($car) {
-            $name = $car->name;
+            return $car;
         }
     }
 
@@ -31,13 +31,8 @@ class CarHandler
         $car = Car::find($id);
         dd($model);
         if ($car) {
-            $car->registration_number = '111111111';
             $car->model = $model;
-            $car->fuel_type = 'petrol';
-            $car->transmission = 'auto';
             $car->save();
         }
     }
-
-    
 }

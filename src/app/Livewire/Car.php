@@ -22,6 +22,8 @@ class Car extends Component
     public $editingCarID;
     // #[Rule('required|min:5|max:50')]
     public $editingCarName;
+    public $editingCarModel;
+    public $editingCarDetails;
 
     public $modalOpen = false;
 
@@ -42,25 +44,33 @@ class Car extends Component
         Session::flash('success', 'Saved.');
     }
 
-    public function delete($carId){
+    public function delete($carId)
+    {
         CarHandler::deleteCar($carId);
     }
 
-    public function edit($carId){
+    public function edit($carId)
+    {
         $this->editingCarID = $carId;
-        // dd($this->editingCarID);
         // $this->editingCarName = '';
-        CarHandler::editCar($this->editingCarID, $this->editingCarName);
+        // $editingCarDetails = CarHandler::editCar($this->editingCarID);
+        // dd($editingCarDetails);
+        // return view(
+        //     'livewire.includes.car-card',
+        //     ['carDetails' => $editingCarDetails]
+        // );
     }
 
-    public function cancelEdit(){
+    public function cancelEdit()
+    {
         $this->reset('editingCarID', 'editingCarName');
     }
 
-    public function update(){
+    public function update()
+    {
         // dd('here');
         // $this->validateOnly('editingCarName');
-        
+
         CarHandler::updateCar($this->editingCarID, $this->editingCarName);
         $this->cancelEdit();
     }

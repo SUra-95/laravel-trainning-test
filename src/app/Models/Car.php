@@ -17,4 +17,8 @@ class Car extends Model
         'transmission',
         'customer_id',
     ];
+
+    function customer () {
+        return $this->belongsTo(Customer::class);
+    }
 }

@@ -1,25 +1,54 @@
 <div wire:key="{{ $car->id }}" class="mb-5 card px-5 py-6 bg-white col-span-1 border-t-2 border-blue-500 shadow-md">
     <div class="flex justify-between space-x-2">
 
-        <div class="flex items-center">
-            @if ($editingCarID === $car->id)
-                <div>
-                    <input wire:model="editingCarName" type="text" placeholder="{{ $car->model }}" value="{{ $car->model }}"
-                        class="bg-gray-100  text-gray-900 text-sm rounded block w-full p-2.5">
 
-                    @error('editingCarName')
-                        <span class="text-red-500 text-xs block">{{ $message }}</span>
-                    @enderror
+        @if ($editingCarID === $car->id)
+            <div class="modal w-full" id="editCarModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-center">Edit Car Details</h5>
+                        </div>
+                        <div class="modal-body">
+
+                            <form>
+                                <div class="form-group">
+                                    <label for="registration_number">Registration number:</label>
+                                    <input type="text" class="bg-gray-100  text-gray-900 text-sm rounded block w-full p-2.5" id="registration_number" name="registration_number"
+                                        value="{{ $car->registration_number }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="model">Car Model:</label>
+                                    <input type="text" class="bg-gray-100  text-gray-900 text-sm rounded block w-full p-2.5" id="model" name="model"
+                                        value="{{ $car->model }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="fuel_type">Fuel Type:</label>
+                                    <input type="text" class="bg-gray-100  text-gray-900 text-sm rounded block w-full p-2.5" id="fuel_type" name="fuel_type"
+                                        value="{{ $car->fuel_type }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="transmission">Transmission:</label>
+                                    <input type="text" class="bg-gray-100  text-gray-900 text-sm rounded block w-full p-2.5" id="transmission" name="transmission"
+                                        value="{{ $car->transmission }}">
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            {{-- <button type="button" class="mt-3 px-4 py-2 bg-teal-500 text-white font-semibold rounded hover:bg-teal-600">Save changes</button>
+                            <button type="button" class="mt-3 px-4 py-2 bg-teal-500 text-white font-semibold rounded hover:bg-teal-600" data-dismiss="modal">Close</button> --}}
+                        </div>
+                    </div>
                 </div>
-            @else
+            </div>
+        @else
+            <div class="flex items-center">
                 <h3 class="text-lg text-semibold text-gray-800">{{ $car->model }}</h3>
-            @endif
-        </div>
-
-
+            </div>
+        @endif
 
         <div class="flex items-center space-x-2">
-
             <button wire:click="edit({{ $car->id }})"
                 class="text-sm text-teal-500 font-semibold rounded hover:text-teal-800">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
