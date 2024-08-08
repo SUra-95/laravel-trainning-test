@@ -71,7 +71,7 @@ class Car extends Component
         // dd('here');
         // $this->validateOnly('editingCarName');
 
-        CarHandler::updateCar($this->editingCarID, $this->editingCarName);
+        CarHandler::updateCar($this->editingCarID);
         $this->cancelEdit();
     }
 

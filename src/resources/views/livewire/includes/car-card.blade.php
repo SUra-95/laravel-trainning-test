@@ -69,13 +69,12 @@
         </div>
     </div>
     <span class="text-xs text-gray-500"> {{ $car->created_at }} </span>
-    <div class="mt-3 text-xs text-gray-700">
+    <div class="mt-3 text-xs text-gray-700 flex justify-end">
         @if ($editingCarID === $car->id)
             <button wire:click="update"
                 class="mt-3 px-4 py-2 bg-teal-500 text-white font-semibold rounded hover:bg-teal-600">Update</button>
             <button wire:click="cancelEdit"
-                class="mt-3 px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600">Cancel</button>
+                class="mt-3 ml-2 px-4 py-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600">Cancel</button>
         @endif
-
     </div>
 </div>

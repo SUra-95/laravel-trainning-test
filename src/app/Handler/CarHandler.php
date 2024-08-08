@@ -6,10 +6,11 @@ use App\Models\Car;
 
 class CarHandler
 {
-    
+
     public static function addCar($validated)
     {
-        $car= Car::create($validated);
+        $car = Car::create($validated);
+        
     }
 
 
@@ -26,13 +27,11 @@ class CarHandler
         }
     }
 
-    public static function updateCar($id, $model)
+    public static function updateCar($id)
     {
         $car = Car::find($id);
-        dd($model);
         if ($car) {
-            $car->model = $model;
-            $car->save();
+            dd($car);
         }
     }
 }
